@@ -192,6 +192,19 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
             groupValue={theme.font}
           />
         </Item>
+        <Item widthSpan={4}>
+          <Radio
+            label="Poppins"
+            value="Poppins"
+            onChange={() => {
+              DeviceEventEmitter.emit('onChangeTheme', {
+                ...theme,
+                font: 'Poppins',
+              });
+            }}
+            groupValue={theme.font}
+          />
+        </Item>
       </Container>
       <SizedBox height={12} />
       <Container
@@ -252,7 +265,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.secondary as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.secondary as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        secondary: {
+                          ...theme.colors.secondary,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -261,7 +288,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `secondary${item}`}
@@ -276,7 +303,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.background as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.background as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        background: {
+                          ...theme.colors.background,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -285,7 +326,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `background${item}`}
@@ -300,7 +341,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.text as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.text as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        text: {
+                          ...theme.colors.text,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -309,7 +364,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `text${item}`}
@@ -324,7 +379,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.border as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.border as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        border: {
+                          ...theme.colors.border,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -333,7 +402,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `border${item}`}
@@ -348,7 +417,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.success as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.success as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        success: {
+                          ...theme.colors.success,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -357,7 +440,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `success${item}`}
@@ -372,7 +455,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.warning as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.warning as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        warning: {
+                          ...theme.colors.warning,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -381,7 +478,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `success${item}`}
@@ -396,7 +493,21 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
           renderItem={({item}) => {
             const backgroundColor = (theme.colors.error as any)[item];
             return (
-              <>
+              <TouchableOpacity
+                onPress={() => {
+                  onSelectColor(backgroundColor, (selected: any) => {
+                    (theme.colors.error as any)[item] = selected.value;
+                    DeviceEventEmitter.emit('onChangeTheme', {
+                      ...theme,
+                      colors: {
+                        ...theme.colors,
+                        error: {
+                          ...theme.colors.error,
+                        },
+                      },
+                    });
+                  });
+                }}>
                 <View
                   style={[
                     styles.box,
@@ -405,7 +516,7 @@ const ThemeSetting: React.FC<ScreenContainerProps> = ({navigation}) => {
                 />
                 <Text typography={'label_s'}>{item}</Text>
                 <Text typography={'label_s'}>{backgroundColor}</Text>
-              </>
+              </TouchableOpacity>
             );
           }}
           keyExtractor={item => `success${item}`}

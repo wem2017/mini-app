@@ -14,9 +14,7 @@ import {
 import React, {useContext} from 'react';
 import {View} from 'react-native';
 
-import {AnimatedHeader, ExtendedHeader} from '../index.tsx';
-import DefaultHeader from './DefaultHeader';
-import SurfaceHeader from './SurfaceHeader';
+import {AnimatedHeader, HeaderStyle} from '../index.tsx';
 
 const Motions: React.FC<ScreenContainerProps> = ({navigation}) => {
   const {theme, navigator} = useContext(ApplicationContext);
@@ -139,30 +137,10 @@ const Motions: React.FC<ScreenContainerProps> = ({navigation}) => {
         </Item>
         <Item widthSpan={12}>
           <Button
-            title={'Default Header'}
+            title={'Header Style'}
             onPress={() => {
               navigator?.push({
-                screen: DefaultHeader,
-              });
-            }}
-          />
-        </Item>
-        <Item widthSpan={12}>
-          <Button
-            title={'Surface Header'}
-            onPress={() => {
-              navigator?.push({
-                screen: SurfaceHeader,
-              });
-            }}
-          />
-        </Item>
-        <Item widthSpan={12}>
-          <Button
-            title={'Extend Header'}
-            onPress={() => {
-              navigator?.push({
-                screen: ExtendedHeader,
+                screen: HeaderStyle,
               });
             }}
           />

@@ -10,7 +10,7 @@ import {
 import {useNavigationContainerRef} from '@react-navigation/native';
 import {Components, StylesGuide} from './screens';
 import Motions from './screens/Motions';
-import PlatformApi from '@api';
+import PlatformApi from '@passionui/platform-api';
 import {DeviceEventEmitter} from 'react-native';
 import {DATA} from './screens/Components';
 

@@ -118,7 +118,7 @@ const Playground: React.FC<PlaygroundProps> = ({
   };
 
   return (
-    <ScrollView stickyHeaderIndices={[0]}>
+    <ScrollView stickyHeaderIndices={[0]} keyboardShouldPersistTaps={'handled'}>
       <View
         style={{
           paddingVertical: Spacing.M,
@@ -145,6 +145,7 @@ const Playground: React.FC<PlaygroundProps> = ({
       </View>
       <Container>
         <ItemList
+          keyboardShouldPersistTaps={'handled'}
           widthSpan={12}
           scrollEnabled={false}
           data={Object.keys(data)}
@@ -182,7 +183,7 @@ const Playground: React.FC<PlaygroundProps> = ({
           keyExtractor={item => item}
         />
       </Container>
-      <SizedBox height={12} />
+      <SizedBox height={24} />
     </ScrollView>
   );
 };

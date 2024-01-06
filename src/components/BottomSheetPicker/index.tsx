@@ -52,7 +52,11 @@ const BottomSheetPicker: FC<BottomSheetPickerProps> = ({
             <Text typography={'label_xs'}>{item.subTitle}</Text>
           )}
         </View>
-        <Radio value={item.value} groupValue={selected?.value} />
+        <Radio
+          value={item.value}
+          groupValue={selected?.value}
+          onChange={() => onSelect?.(item)}
+        />
       </TouchableOpacity>
     );
   };
